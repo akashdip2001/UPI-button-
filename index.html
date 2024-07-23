@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Payment</title>
+</head>
+<body>
+    <h2>UPI Payment Button</h2>
+    <button onclick="payWithUPI()">Pay with UPI</button>
+
+    <script>
+        function payWithUPI() {
+            const upiID = "soumyadeepkoley1301@oksbi";
+            const amount = prompt("Enter the amount to pay:");
+            if (amount && !isNaN(amount) && parseFloat(amount) > 0) {
+                const upiLink = `upi://pay?pa=${upiID}&pn=Soumyadeep%20Koley&am=${amount}&cu=INR`;
+                window.location.href = upiLink;
+            } else {
+                alert("Please enter a valid amount.");
+            }
+        }
+    </script>
+</body>
+</html>
